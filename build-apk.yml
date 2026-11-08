@@ -1,0 +1,67 @@
+name: Build Android APK
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build-apk:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+
+      - name: Bun einrichten
+        uses: oven-sh/setup-bun@v2
+
+      - name: Java 21 einrichten
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: Abhängigkeiten installieren
+        run: bun install
+
+      - name: Web-App bauen
+        run: bun run build
+        env:
+          # Optional: unter Settings > Secrets and variables > Actions anlegen
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
+      - name: Capacitor installieren (falls nötig)
+        run: |
+          if [ ! -d "node_modules/@capacitor/core" ]; then
+            bun add @capacitor/core@latest
+          fi
+          CAP_VERSION=$(node -p "require('./node_modules/@capacitor/core/package.json').version")
+          echo "Capacitor Core Version: $CAP_VERSION"
+          if [ ! -d "node_modules/@capacitor/android" ]; then
+            bun add @capacitor/android@$CAP_VERSION
+          fi
+          if [ ! -d "node_modules/@capacitor/cli" ]; then
+            bun add -d @capacitor/cli@$CAP_VERSION
+          fi
+
+      - name: Android-Projekt erzeugen (falls nötig)
+        run: |
+          if [ ! -d "android" ]; then
+            npx cap add android
+          fi
+
+      - name: Web-Build mit Android synchronisieren
+        run: npx cap sync android
+
+      - name: Debug-APK bauen
+        working-directory: android
+        run: |
+          chmod +x gradlew
+          ./gradlew assembleDebug
+
+      - name: APK als Download bereitstellen
+        uses: actions/upload-artifact@v4
+        with:
+          name: medical-assistant-apk
+          path: android/app/build/outputs/apk/debug/app-debug.apk
