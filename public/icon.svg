@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <rect width="512" height="512" rx="112" fill="#D1FAE5"/>
+  <!-- Outer tick ring & inner circle -->
+  <circle cx="256" cy="256" r="126" stroke="#0F766E" stroke-width="10" stroke-dasharray="4 6"/>
+  <circle cx="256" cy="256" r="86" stroke="#065F46" stroke-width="6"/>
+  <!-- Diagonal compass points -->
+  <polygon points="256,256 176,176 232,256" fill="#0F766E"/>
+  <polygon points="256,256 336,176 256,232" fill="#065F46"/>
+  <polygon points="256,256 336,336 280,256" fill="#0F766E"/>
+  <polygon points="256,256 176,336 256,280" fill="#065F46"/>
+  <!-- Main N/E/S/W compass points -->
+  <polygon points="256,68 230,256 256,256" fill="#0F766E"/>
+  <polygon points="256,68 282,256 256,256" fill="#115E59"/>
+  <polygon points="256,444 230,256 256,256" fill="#115E59"/>
+  <polygon points="256,444 282,256 256,256" fill="#0F766E"/>
+  <polygon points="68,256 256,230 256,256" fill="#115E59"/>
+  <polygon points="68,256 256,282 256,256" fill="#0F766E"/>
+  <polygon points="444,256 256,230 256,256" fill="#0F766E"/>
+  <polygon points="444,256 256,282 256,256" fill="#115E59"/>
+  <!-- Center Heart -->
+  <path d="M256 312C256 312 194 274 194 234C194 212 211 196 232 196C245 196 256 205 256 205C256 205 267 196 280 196C301 196 318 212 318 234C318 274 256 312 256 312Z" fill="#EF5A47" stroke="#ECFDF5" stroke-width="8" stroke-linejoin="round"/>
+  <!-- Top-left: Medical Kit -->
+  <rect x="82" y="96" width="68" height="52" rx="10" fill="#065F46"/>
+  <path d="M104 96V88C104 84 107 81 111 81H121C125 81 128 84 128 88V96" stroke="#065F46" stroke-width="6"/>
+  <path d="M116 108V136M102 122H130" stroke="#ECFDF5" stroke-width="7" stroke-linecap="round"/>
+  <!-- Top-right: Medical Cross Circle -->
+  <circle cx="394" cy="122" r="34" fill="#047857"/>
+  <path d="M394 104V140M376 122H412" stroke="#ECFDF5" stroke-width="10" stroke-linecap="round"/>
+  <!-- Bottom-left: Calendar -->
+  <rect x="78" y="350" width="72" height="64" rx="10" fill="#ECFDF5" stroke="#065F46" stroke-width="8"/>
+  <rect x="78" y="350" width="72" height="20" rx="6" fill="#065F46"/>
+  <!-- Bottom-right: Capsules -->
+  <rect x="378" y="346" width="28" height="68" rx="14" transform="rotate(28 378 346)" fill="#065F46" stroke="#065F46" stroke-width="4"/>
+  <rect x="346" y="366" width="22" height="52" rx="11" transform="rotate(28 346 366)" fill="#0F766E" stroke="#065F46" stroke-width="4"/>
+</svg>
+
+

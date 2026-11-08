@@ -1,0 +1,9 @@
+{
+  "appId": "de.medicalcompass.app",
+  "appName": "Medical Compass",
+  "webDir": "dist",
+  "bundledWebRuntime": false,
+  "server": {
+    "androidScheme": "https"
+  }
+}

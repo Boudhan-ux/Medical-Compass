@@ -1,0 +1,8 @@
+{
+  "name": "Medical Assistant",
+  "description": "Digital -Gesundheits-App für Blutdruck, Puls, Blutzucker, Gewicht, Medikamentenerinnerung, Trinkziel, Arzttermine und ärztliche Gesundheitsberichte.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
